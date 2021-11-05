@@ -1,26 +1,16 @@
-.App {
+@import '~antd/dist/antd.css';
+
+/*.App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 800px;
-}
+}*/
 
-.app-header {
-  padding: 20px;
-}
-
-.app-btn {
-  margin: 5px;
-  padding: 5px;
-  background-color: teal;
+.navbar__user-name {
+  margin-right: 50px;
   color: #fff;
-  border: 1px solid teal;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: .3s;
 }
-.app-btn:hover {
-  background-color: steelblue;
-}
+
