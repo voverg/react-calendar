@@ -1,5 +1,6 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 import { Layout, Menu, Breadcrumb, Row, Col } from 'antd';
 
 import {routeNames} from '../routes';
@@ -7,13 +8,12 @@ import {routeNames} from '../routes';
 const Navbar = (props) => {
   const { Header, Content, Footer } = Layout;
   const router = useHistory();
-  const auth = true;
-  console.log(router);
+  const {isAuth} = useSelector(state => state.auth);
 
   return (
     <Header>
       <Row justify="end">
-        {auth
+        {isAuth
           ?
           <React.Fragment>
             <div className="navbar__user-name">Вовка</div>
