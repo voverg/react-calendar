@@ -1,14 +1,16 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
-import {useSelector} from 'react-redux';
-import { Layout, Menu, Breadcrumb, Row, Col } from 'antd';
+import {useSelector, useDispatch} from 'react-redux';
+import { Layout, Menu, Row, Col } from 'antd';
 
 import {routeNames} from '../routes';
+import {AuthActionCreators} from '../store/reducers/auth/actionCreators.js';
 
 const Navbar = (props) => {
   const { Header, Content, Footer } = Layout;
   const router = useHistory();
-  const {isAuth} = useSelector(state => state.auth);
+  const {isAuth, user} = useSelector(state => state.auth);
+  const dispatch = useDispatch();
 
   return (
     <Header>
@@ -16,12 +18,12 @@ const Navbar = (props) => {
         {isAuth
           ?
           <React.Fragment>
-            <div className="navbar__user-name">Вовка</div>
+            <div className="navbar__user-name">{user.username}</div>
             <Col span={3}>
               <Menu theme="dark" mode="horizontal" selectable={false}>
                 <Menu.Item
                   key={1}
-                  onClick={() => console.log('Выйти')}
+                  onClick={() => dispatch(AuthActionCreators.logout())}
                 >
                   Выйти
                 </Menu.Item>

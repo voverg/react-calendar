@@ -1,14 +1,6 @@
-export const authState = {
-  isAuth: false,
-}
-
 export const authActionList = {
   SET_AUTH: 'SET_AUTH',
-};
-
-export const setAuthAction = (payload) => {
-  return {
-    type: authActionList.SET_AUTH,
-    payload,
-  };
+  SET_ERROR: 'SET_ERROR',
+  SET_USER: 'SET_USER',
+  SET_IS_LOADING: 'SET_IS_LOADING',
 };
