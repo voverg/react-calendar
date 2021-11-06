@@ -3,14 +3,14 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Form, Input, Button } from 'antd';
 
 import {rules} from '../utils/rules.js';
-import {AuthActionCreators} from '../store/reducers/auth/actionCreators.js';
+import {useActions} from '../hooks/useActions.js';
 
 const LoginFrom = (props) => {
-  const dispatch = useDispatch();
   const {error, isLoading} = useSelector(state => state.auth);
+  const {login} = useActions();
 
   const onFinish = (values) => {
-    dispatch(AuthActionCreators.login(values.username, values.password));
+    login(values.username, values.password);
   };
 
   return (

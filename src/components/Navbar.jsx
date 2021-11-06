@@ -4,13 +4,13 @@ import {useSelector, useDispatch} from 'react-redux';
 import { Layout, Menu, Row, Col } from 'antd';
 
 import {routeNames} from '../routes';
-import {AuthActionCreators} from '../store/reducers/auth/actionCreators.js';
+import {useActions} from '../hooks/useActions.js';
 
 const Navbar = (props) => {
-  const { Header, Content, Footer } = Layout;
+  const { Header } = Layout;
   const router = useHistory();
   const {isAuth, user} = useSelector(state => state.auth);
-  const dispatch = useDispatch();
+  const {logout} = useActions();
 
   return (
     <Header>
@@ -23,7 +23,7 @@ const Navbar = (props) => {
               <Menu theme="dark" mode="horizontal" selectable={false}>
                 <Menu.Item
                   key={1}
-                  onClick={() => dispatch(AuthActionCreators.logout())}
+                  onClick={logout}
                 >
                   Выйти
                 </Menu.Item>
