@@ -1,5 +1,5 @@
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import { Form, Input, Button } from 'antd';
 
 import {rules} from '../utils/rules.js';
@@ -29,7 +29,7 @@ const LoginFrom = (props) => {
         <Input />
       </Form.Item>
 
-      <Form.Item
+      <Form.Item wrapperCol={{ offset: 6, span: 36 }}
         label="Пароль"
         name="password"
         rules={[rules.required('Введите пароль!')]}
@@ -37,7 +37,7 @@ const LoginFrom = (props) => {
         <Input />
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 18, span: 16 }}>
+      <Form.Item>
         <Button
           type="primary"
           htmlType="submit"

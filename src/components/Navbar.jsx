@@ -18,7 +18,7 @@ const Navbar = (props) => {
         {isAuth
           ?
           <React.Fragment>
-            <div className="navbar__user-name">{user.username}</div>
+            <div className="navbar__user-name">{user.name}</div>
             <Col span={3}>
               <Menu theme="dark" mode="horizontal" selectable={false}>
                 <Menu.Item
