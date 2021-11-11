@@ -1,8 +1,8 @@
 import {Event, Login} from '../pages';
 
 export const routeNames = {
-  LOGIN: '/login',
-  EVENT: '/',
+  LOGIN: '/react-calendar/login',
+  EVENT: '/react-calendar',
 }
 
 export const publicRoutes = [

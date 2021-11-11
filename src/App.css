@@ -14,3 +14,7 @@
   padding: 10px;
   color: red;
 }
+
+.events {
+  list-style-type: none;
+}

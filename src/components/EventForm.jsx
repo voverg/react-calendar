@@ -1,33 +1,39 @@
 import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
 import { Form, Input, DatePicker, Select, Button } from 'antd';
 
-import {rules} from '../utils/rules.js';
+import {formatDate, rules} from 'utils';
 
-const EventForm = ({guests}) => {
+const EventForm = ({addEvent, guests}) => {
   const [event, setEvent] = useState({
     author: '',
     date: '',
     description: '',
     guest: '',
+    id: '',
   });
   const { Option } = Select;
+  const {user} = useSelector(state => state.auth);
 
-  const onFinish = (values) => {
-    console.log(values);
+  const onFinish = () => {
+    const id = Date.now();
+    setEvent({...event, id});
+    addEvent({...event, author: user.username});
   };
 
-  const changeDesription = (event) => {
-    const value = event.target.value;
+  const changeDesription = (e) => {
+    const value = e.target.value;
     setEvent({...event, description: value});
   }
 
-  const changeDate = (date, dateString) => {
-    console.log(date, dateString);
-    setEvent({...event, date: date})
+  const changeDate = (date) => {
+    if (date) {
+      const eventDate = formatDate(date.toDate());
+      setEvent({...event, date: eventDate});
+    }
   };
 
   const changeGuest = (guest) => {
-    console.log(`selected ${guest}`);
     setEvent({...event, guest: guest});
   };
 

@@ -7,17 +7,25 @@ import {useActions} from 'hooks/useActions.js';
 
 const Event = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const {fetchGuests} = useActions();
-  const {guests} = useSelector(state => state.event);
+  const {fetchGuests, fetchEvents, createEvent} = useActions();
+  const {guests, events} = useSelector(state => state.event);
+  const {user} = useSelector(state => state.auth);
 
   useEffect(() => {
     fetchGuests();
+    fetchEvents(user.username);
   }, []);
+
+  const addEvent = (event) => {
+    setModalVisible(false);
+    createEvent(event);
+    fetchEvents(user.username);
+  };
 
   return (
     <Layout>
       <EventCalendar
-        events={[]}
+        events={events}
       />
 
       <Row justify="center">
@@ -34,7 +42,10 @@ const Event = (props) => {
         onCancel={() => setModalVisible(false)}
         footer={null}
       >
-        <EventForm guests={guests} />
+        <EventForm
+          addEvent={addEvent}
+          guests={guests}
+        />
       </Modal>
     </Layout>
   );

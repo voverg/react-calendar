@@ -1,13 +1,27 @@
 import React from 'react';
-import { Calendar } from 'antd';
+import { Calendar, Badge } from 'antd';
 
-const EventCalendar = (props) => {
-  function onPanelChange(value, mode) {
-    console.log(value.format('YYYY-MM-DD'), mode);
+import {formatDate} from 'utils';
+
+const EventCalendar = ({events}) => {
+  function dateCellRender(value) {
+    const dateFormatted = formatDate(value.toDate());
+    const currentEvents = events.filter(event => event.date === dateFormatted);
+
+    return (
+      <div className="events">
+        {currentEvents.map( (event) => (
+          <div key={event.id}>
+            <Badge status="success" text={event.description} />
+          </div>
+        ))}
+      </div>
+    );
+
   }
 
   return (
-    <Calendar onPanelChange={onPanelChange} />
+    <Calendar dateCellRender={dateCellRender} />
   );
 };
 
