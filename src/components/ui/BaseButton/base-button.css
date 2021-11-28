@@ -1,0 +1,13 @@
+.base-button {
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: all .2s ease-in;
+}
+
+.base-button:hover {
+
+}

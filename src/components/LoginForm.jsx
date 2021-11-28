@@ -21,6 +21,7 @@ const LoginFrom = (props) => {
       {error &&
         <div className="error-text">{error}</div>
       }
+
       <Form.Item
         label="Имя пользователя"
         name="username"
@@ -29,7 +30,7 @@ const LoginFrom = (props) => {
         <Input />
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 6, span: 36 }}
+      <Form.Item
         label="Пароль"
         name="password"
         rules={[rules.required('Введите пароль!')]}

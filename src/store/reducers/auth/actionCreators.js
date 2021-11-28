@@ -29,6 +29,7 @@ export const AuthActionCreators = {
         if (mockUser) {
           localStorage.setItem('auth', 'true');
           localStorage.setItem('username', mockUser.username);
+          // localStorage.setItem('name', mockUser.name);
           dispatch(AuthActionCreators.setUser(mockUser));
           dispatch(AuthActionCreators.setIsAuth(true));
         } else {
@@ -44,6 +45,7 @@ export const AuthActionCreators = {
   logout: () => async (dispatch) => {
     localStorage.removeItem('auth');
     localStorage.removeItem('username');
+    // localStorage.removeItem('name');
     dispatch(AuthActionCreators.setUser({}));
     dispatch(AuthActionCreators.setIsAuth(false));
   },

@@ -3,12 +3,13 @@ import {useSelector} from 'react-redux';
 import { Layout, Row, Button, Modal } from 'antd';
 
 import {EventCalendar, EventForm} from '../components';
+import {Navbar} from 'components';
 import {useActions} from 'hooks/useActions.js';
 
 const Event = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const {fetchGuests, fetchEvents, createEvent} = useActions();
   const {guests, events} = useSelector(state => state.event);
+  const {fetchGuests, fetchEvents, createEvent} = useActions();
   const {user} = useSelector(state => state.auth);
 
   useEffect(() => {
@@ -24,6 +25,7 @@ const Event = (props) => {
 
   return (
     <Layout>
+      <Navbar setModalVisible={setModalVisible} />
       <EventCalendar
         events={events}
       />

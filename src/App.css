@@ -1,5 +1,23 @@
 @import '~antd/dist/antd.css';
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+  padding: 20px;
+  background-color: #001529;
+}
+
+.navbar__item, .navbar__add-btn {
+  color: #fff;
+  cursor: pointer;
+}
+
+.navbar__add-btn:hover {
+  background-color: orange;
+  color: #001529;
+}
 
 .navbar__user-name {
   margin-right: 50px;

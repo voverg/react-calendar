@@ -3,8 +3,9 @@ import {useHistory} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import { Layout, Menu, Row, Col } from 'antd';
 
-import {routeNames} from '../routes';
-import {useActions} from '../hooks/useActions.js';
+import {routeNames} from 'routes';
+import {useActions} from 'hooks/useActions.js';
+import {BaseButton} from 'components/ui';
 
 const Navbar = (props) => {
   const { Header } = Layout;
@@ -13,38 +14,45 @@ const Navbar = (props) => {
   const {logout} = useActions();
 
   return (
-    <Header>
-      <Row justify="end">
+    <header className="navbar">
         {isAuth
           ?
           <React.Fragment>
+            <BaseButton
+              className="navbar__add-btn"
+              onClick={() => props.setModalVisible(true)}
+            >
+              Добавить событие
+            </BaseButton>
+
             <div className="navbar__user-name">{user.name}</div>
-            <Col span={3}>
-              <Menu theme="dark" mode="horizontal" selectable={false}>
-                <Menu.Item
-                  key={1}
-                  onClick={logout}
-                >
-                  Выйти
-                </Menu.Item>
-              </Menu>
-            </Col>
+
+            <nav className="havbar__nav">
+              <div
+                className="navbar__item"
+                key={1}
+                onClick={logout}
+              >
+                Выйти
+              </div>
+            </nav>
           </React.Fragment>
           :
-          <Col span={3}>
-            <Menu theme="dark" mode="horizontal" selectable={false}>
-              <Menu.Item
+          <React.Fragment>
+            <div className="logo"></div>
+            <nav className="havbar__nav">
+              <div
+                className="navbar__item"
                 key={1}
                 onClick={() => router.push(routeNames.LOGIN)}
               >
                 Login
-              </Menu.Item>
-            </Menu>
-          </Col>
+              </div>
+            </nav>
+          </React.Fragment>
         }
 
-      </Row>
-    </Header>
+    </header>
   );
 };
 
