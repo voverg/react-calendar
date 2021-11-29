@@ -17,8 +17,6 @@ const EventForm = ({addEvent, guests}) => {
 
   const onFinish = () => {
     const id = Date.now().toString();
-    console.log(id);
-    // setEvent({...event, id: id});
     addEvent({...event, author: user.username, id: id});
   };
 
