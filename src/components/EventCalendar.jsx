@@ -7,7 +7,6 @@ const EventCalendar = ({events}) => {
   function dateCellRender(value) {
     const dateFormatted = formatDate(value.toDate());
     const currentEvents = events.filter(event => event.date === dateFormatted);
-    // console.log(currentEvents);
 
     return (
       <div className="events">

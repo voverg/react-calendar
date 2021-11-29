@@ -10,8 +10,9 @@ const Event = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [eventDetailsVisible, setEventDetailsVisible] = useState(false);
   const [currentEvents, setCurrentEvents] = useState([]);
+
   const {guests, events} = useSelector(state => state.event);
-  const {fetchGuests, fetchEvents, createEvent} = useActions();
+  const {fetchGuests, fetchEvents, createEvent, removeEvent} = useActions();
   const {user} = useSelector(state => state.auth);
 
   useEffect(() => {
@@ -25,6 +26,11 @@ const Event = (props) => {
     fetchEvents(user.username);
   };
 
+  const deleteEvent = (eventId) => {
+    removeEvent(eventId);
+    setCurrentEvents(currentEvents.filter(event => event.id !== eventId));
+  }
+
   const handleCalendar = (event) => {
     let target = event.target;
 
@@ -33,8 +39,8 @@ const Event = (props) => {
     }
 
     if (target.className === 'events') {
-      setCurrentEvents(getCurrentEvents(target, events))
-      setEventDetailsVisible(true)
+      setCurrentEvents(getCurrentEvents(target, events));
+      setEventDetailsVisible(true);
     }
   }
 
@@ -68,6 +74,7 @@ const Event = (props) => {
       >
         <EventDetails
           currentEvents={currentEvents}
+          deleteEvent={deleteEvent}
         />
       </Modal>
     </Layout>

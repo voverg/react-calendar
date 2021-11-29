@@ -27,7 +27,7 @@ export const AuthActionCreators = {
         const mockUser = users.find(user => user.username === username && user.password === password);
 
         if (mockUser) {
-          localStorage.setItem('auth', 'true');
+          localStorage.setItem('calendarAuth', 'true');
           localStorage.setItem('username', mockUser.username);
           // localStorage.setItem('name', mockUser.name);
           dispatch(AuthActionCreators.setUser(mockUser));
@@ -43,7 +43,7 @@ export const AuthActionCreators = {
     }
   },
   logout: () => async (dispatch) => {
-    localStorage.removeItem('auth');
+    localStorage.removeItem('calendarAuth');
     localStorage.removeItem('username');
     // localStorage.removeItem('name');
     dispatch(AuthActionCreators.setUser({}));

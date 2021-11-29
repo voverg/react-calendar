@@ -11,7 +11,7 @@ function App() {
   const {setUser, setIsAuth} = useActions();
 
   useEffect(() => {
-    if (localStorage.getItem('auth')) {
+    if (localStorage.getItem('calendarAuth')) {
       const user = UserService.getUser(localStorage.getItem('username' || ''));
       setUser( {...user} )
       setIsAuth(true);

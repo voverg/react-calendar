@@ -66,3 +66,7 @@
 .current-event__body {
   padding: 5px;
 }
+.current-event__delete:hover {
+  background-color: var(--blue);
+  color: #fff;
+}

@@ -29,6 +29,17 @@ export const EventActionCreators = {
       console.log(error);
     }
   },
+  removeEvent: (eventId) => (dispatch) => {
+    try {
+      const events = localStorage.getItem('events') || '[]';
+      const json = JSON.parse(events);
+      const newEventList = json.filter(event => event.id !== eventId);
+      dispatch(EventActionCreators.setEvents(newEventList));
+      localStorage.setItem('events', JSON.stringify(newEventList));
+    } catch (error) {
+      console.log(error);
+    }
+  },
   fetchEvents: (username) => (dispatch) => {
     try {
       const events = localStorage.getItem('events') || '[]';
