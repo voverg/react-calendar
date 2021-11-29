@@ -16,9 +16,10 @@ const EventForm = ({addEvent, guests}) => {
   const {user} = useSelector(state => state.auth);
 
   const onFinish = () => {
-    const id = Date.now();
-    setEvent({...event, id});
-    addEvent({...event, author: user.username});
+    const id = Date.now().toString();
+    console.log(id);
+    // setEvent({...event, id: id});
+    addEvent({...event, author: user.username, id: id});
   };
 
   const changeDesription = (e) => {

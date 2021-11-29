@@ -1,12 +1,17 @@
 @import '~antd/dist/antd.css';
 
+:root {
+  --blue: #001529;
+}
+
+/*Header*/
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 50px;
   padding: 20px;
-  background-color: #001529;
+  background-color: var(--blue);
 }
 
 .navbar__item, .navbar__add-btn {
@@ -15,7 +20,7 @@
 }
 
 .navbar__add-btn:hover {
-  background-color: orange;
+  background-color: #FFEB3B;
   color: #001529;
 }
 
@@ -24,6 +29,13 @@
   color: #fff;
 }
 
+/*Event*/
+.calendar-wrap {
+  padding: 0 10px;
+  background-color: #fff;
+}
+
+/*General*/
 .h100 {
   height: calc(100vh - 64px);
 }
@@ -35,4 +47,22 @@
 
 .events {
   list-style-type: none;
+  overflow-x: hidden;
+  white-space: nowrap;
+  height: 100%;
+}
+
+/*Current events*/
+.current-event {
+  margin-bottom: 10px;
+  border: 1px solid var(--blue);
+  border-radius: 3px;
+}
+.current-event__header {
+  padding: 5px;
+  background-color: var(--blue);
+  color: #fff;
+}
+.current-event__body {
+  padding: 5px;
 }
