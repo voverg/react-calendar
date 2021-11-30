@@ -20,29 +20,29 @@ export const EventActionCreators = {
   },
   createEvent: (event) => (dispatch) => {
     try {
-      const events = localStorage.getItem('events') || '[]';
+      const events = localStorage.getItem('calendarEvents') || '[]';
       const json = JSON.parse(events);
       json.push(event);
       dispatch(EventActionCreators.setEvents(json));
-      localStorage.setItem('events', JSON.stringify(json));
+      localStorage.setItem('calendarEvents', JSON.stringify(json));
     } catch (error) {
       console.log(error);
     }
   },
   removeEvent: (eventId) => (dispatch) => {
     try {
-      const events = localStorage.getItem('events') || '[]';
+      const events = localStorage.getItem('calendarEvents') || '[]';
       const json = JSON.parse(events);
       const newEventList = json.filter(event => event.id !== eventId);
       dispatch(EventActionCreators.setEvents(newEventList));
-      localStorage.setItem('events', JSON.stringify(newEventList));
+      localStorage.setItem('calendarEvents', JSON.stringify(newEventList));
     } catch (error) {
       console.log(error);
     }
   },
   fetchEvents: (username) => (dispatch) => {
     try {
-      const events = localStorage.getItem('events') || '[]';
+      const events = localStorage.getItem('calendarEvents') || '[]';
       const json = JSON.parse(events);
       const userEvents = json.filter(event => event.guest === username || event.author === username);
       dispatch(EventActionCreators.setEvents(userEvents));

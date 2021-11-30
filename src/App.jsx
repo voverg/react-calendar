@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem('calendarAuth')) {
-      const user = UserService.getUser(localStorage.getItem('username' || ''));
+      const user = UserService.getUser(localStorage.getItem('calendarUsername' || ''));
       setUser( {...user} )
       setIsAuth(true);
     }

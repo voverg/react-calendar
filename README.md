@@ -1,6 +1,12 @@
 # This is a calendar app written with React
 
+- Add a new event
+- Assign events any members
+- See events details by clicking the date
+- Remove events
+
 You can see a demo version on GitHub Pages by [this link](https://voverg.github.io/react-calendar/)
+
 ![calendar image](./public/calendar.png)
 ![calendar add event image](./public/calendar-add-event.png)
 ![calendar events details image](./public/calendar-events.png)
