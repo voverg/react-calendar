@@ -22,7 +22,7 @@ const Navbar = (props) => {
               className="navbar__add-btn"
               onClick={() => props.setModalVisible(true)}
             >
-              Добавить событие
+              Добавить
             </BaseButton>
 
             <div className="navbar__user-name">{user.name}</div>
