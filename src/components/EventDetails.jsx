@@ -12,6 +12,8 @@ const EventDetails = ({currentEvents, deleteEvent}) => {
 
   return (
     <div className="event-details">
+      {currentEvents.length === 0 && (<p>Нет событий</p>)}
+
       {currentEvents.map(event =>
         <div key={event.id} id={event.id} className="current-event">
           <div className="current-event__header">
@@ -40,6 +42,7 @@ const EventDetails = ({currentEvents, deleteEvent}) => {
       )}
     </div>
   );
+
 };
 
 export default EventDetails;

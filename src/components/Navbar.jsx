@@ -46,7 +46,7 @@ const Navbar = (props) => {
                 key={1}
                 onClick={() => router.push(routeNames.LOGIN)}
               >
-                Login
+                Вход
               </div>
             </nav>
           </React.Fragment>
